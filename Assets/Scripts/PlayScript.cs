@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayScript : MonoBehaviour
 {
     [SerializeField] private Text highScoreText;
+    [SerializeField] private Text nameText;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class PlayScript : MonoBehaviour
         SaveLoad.Load();
 
         highScoreText.text = highScoreText.text.Replace("{SCORE}", SaveLoad.data.score.ToString());
+        nameText.text = nameText.text.Replace("{NAME}", SaveLoad.data.playerName.ToString());
     }
 
     public void PlayGame()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public int ScoreValue => scoreValue;
+    public string NameInput;
 
     private int scoreValue = 0;
     public Text scoreText;

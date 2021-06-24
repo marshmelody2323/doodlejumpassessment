@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -42,9 +43,13 @@ public static class SaveLoad
             data = new SaveData();
             data.score = score.ScoreValue;
             // Set the player name here
+            data.playerName = score.NameInput;
+
+            InputField field = GameObject.FindObjectOfType<InputField>();
+            field.text = score.NameInput;
 
             // Check if the streaming assets folder exists... if it doesn't, make it
-            if(!Directory.Exists(Application.streamingAssetsPath))
+            if (!Directory.Exists(Application.streamingAssetsPath))
                 Directory.CreateDirectory(Application.streamingAssetsPath);
 
             // Get the river from the ram to the file
@@ -64,6 +69,6 @@ public static class SaveLoad
 [System.Serializable]
 public class SaveData
 {
-    public int score;
-    public string playerName;
+    public int score = 0;
+    public string playerName = "";
 }
